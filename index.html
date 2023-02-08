@@ -148,6 +148,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/08/python1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jin Xi">
+      <meta itemprop="description" content="Happy every day">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jin's Coffee Bar">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/02/08/python1/" class="post-title-link" itemprop="url">python中的isinstance和type和typeof</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-02-08 01:10:17 / Modified: 01:28:50" itemprop="dateCreated datePublished" datetime="2023-02-08T01:10:17+08:00">2023-02-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="instance-函数"><a href="#instance-函数" class="headerlink" title="instance() 函数"></a>instance() 函数</h1><p>*instance()*函数是Python内置函数，判断一个对象是否是某个类或子类，返回True或False</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isinstance(object, classinfo) -&gt; bool</span><br></pre></td></tr></table></figure>
+<ul>
+<li>object – 实例对象。</li>
+<li>classinfo – 可以是直接或间接类名、基本类型或者由它们组成的元组。可以是：int，float，bool，complex，str(不能写string)，list，dict，set，tuple</li>
+</ul>
+<h1 id="type-函数"><a href="#type-函数" class="headerlink" title="type() 函数"></a>type() 函数</h1><p>*type()*函数可以判断输入参数的类型，返回该类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type(object_or_name, bases, dict)</span><br><span class="line">type(object) -&gt; the object’s type</span><br></pre></td></tr></table></figure>
+
+<p>如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class A:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">class B(A):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">print(isinstance(A(), A))  # True</span><br><span class="line">print(type(A()) == A)  # True</span><br><span class="line">print(isinstance(B(), A))  # True</span><br><span class="line">print(type(B()) == A)  # False</span><br></pre></td></tr></table></figure>
+<p>&#x3D;&#x3D;比较会直接调用__eq__()函数，而type()返回的是&lt;class ‘__main__.A’&gt;就是A的数据类型</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/08/post2022-2-8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -162,7 +232,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/02/08/post2022-2-8/" class="post-title-link" itemprop="url">post2022-2-8</a>
+            <a href="/2023/02/08/post2022-2-8/" class="post-title-link" itemprop="url">年后小节</a>
         </h2>
 
         <div class="post-meta">
@@ -171,8 +241,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-02-08 00:56:12" itemprop="dateCreated datePublished" datetime="2023-02-08T00:56:12+08:00">2023-02-08</time>
+              <time title="Created: 2023-02-08 00:56:12 / Modified: 00:58:04" itemprop="dateCreated datePublished" datetime="2023-02-08T00:56:12+08:00">2023-02-08</time>
             </span>
 
           
@@ -333,12 +404,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
