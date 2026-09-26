@@ -1,0 +1,22 @@
+---
+const { posts } = Astro.props;
+const typeLabels = { tech: "技术", algorithm: "刷题", reading: "阅读", note: "日记" };
+---
+
+<div class="post-list">
+  {posts.map((post, index) => (
+    <article class="post-row">
+      <div class="post-number">{String(index + 1).padStart(2, "0")}</div>
+      <div class="post-copy">
+        <div class="post-meta">
+          <span>{typeLabels[post.data.type]}</span>
+          <time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString("zh-CN", { year: "numeric", month: "long", day: "numeric" })}</time>
+        </div>
+        <h2><a href={`/${post.data.path}/`}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+        <div class="tag-row">{post.data.tags.map((tag) => <a href={`/tags/${encodeURIComponent(tag)}/`}>#{tag}</a>)}</div>
+      </div>
+      <a class="read-link" href={`/${post.data.path}/`} aria-label={`阅读${post.data.title}`}>→</a>
+    </article>
+  ))}
+</div>

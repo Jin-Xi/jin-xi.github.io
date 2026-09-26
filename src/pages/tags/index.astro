@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const counts = new Map<string, number>();
+posts.forEach((post) => post.data.tags.forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1)));
+---
+
+<BaseLayout title="专题" description="Jin Xi 的公开学习专题">
+  <section class="page-head wrap"><p class="eyebrow">TOPICS</p><h1>专题</h1><p>把散落的笔记，按问题重新连在一起。</p></section>
+  <section class="topic-grid wrap">
+    {[...counts.entries()].sort((a, b) => b[1] - a[1]).map(([tag, count]) => <a href={`/tags/${encodeURIComponent(tag)}/`}><span>#{tag}</span><b>{count}</b><small>篇记录</small></a>)}
+  </section>
+</BaseLayout>

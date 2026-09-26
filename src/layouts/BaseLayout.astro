@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Jin's Coffee Bar",
+  description = "学习、实践和每日记录。",
+} = Astro.props;
+const pageTitle = title === "Jin's Coffee Bar" ? title : `${title} · Jin's Coffee Bar`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#202621" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="canonical" href={canonical} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="identity" href="/" aria-label="Jin's Coffee Bar 首页">
+        <span class="seal">拾</span>
+        <span><b>Jin's Coffee Bar</b><small>学习路上的拾光笔记</small></span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="/">时间线</a>
+        <a href="/archives/">归档</a>
+        <a href="/tags/">专题</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <span>© {new Date().getFullYear()} Jin Xi</span>
+      <span>在本地写下，在 GitHub Pages 公开。</span>
+    </footer>
+  </body>
+</html>

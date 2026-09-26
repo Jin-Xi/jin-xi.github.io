@@ -1,0 +1,109 @@
+:root {
+  --ink: #222722;
+  --soft: #636a63;
+  --muted: #90958f;
+  --paper: #f7f6f1;
+  --card: #fcfcf9;
+  --line: #deded6;
+  --green: #456b59;
+  --green-soft: #e4ede7;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--paper); scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(900px, calc(100% - 40px)); margin-inline: auto; }
+
+.site-header { height: 76px; padding: 0 max(28px, calc((100% - 1120px) / 2)); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: rgba(247,246,241,.9); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 10; }
+.identity { display: flex; align-items: center; gap: 11px; }
+.identity .seal { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 11px 11px 11px 3px; background: var(--green); color: white; font: 18px "Kaiti SC", serif; }
+.identity b, .identity small { display: block; }
+.identity b { font: 600 15px Georgia, "Songti SC", serif; letter-spacing: .02em; }
+.identity small { margin-top: 3px; color: var(--muted); font-size: 9px; letter-spacing: .08em; }
+.site-header nav { display: flex; gap: 28px; color: #6f766f; font-size: 11px; }
+.site-header nav a { position: relative; }
+.site-header nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 1px; background: var(--green); transition: right .2s; }
+.site-header nav a:hover::after { right: 0; }
+
+.hero { min-height: 470px; display: flex; align-items: center; justify-content: space-between; gap: 60px; border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.hero h1 { margin: 20px 0 18px; font: 600 clamp(39px, 6vw, 64px)/1.18 Georgia, "Songti SC", serif; letter-spacing: -.055em; }
+.hero h1 em { color: var(--green); font-style: normal; }
+.hero-copy { color: var(--soft); font: 14px/2 "Kaiti SC", serif; }
+.hero aside { width: 172px; min-height: 190px; padding: 25px; border: 1px solid var(--line); border-radius: 50% 50% 7px 50%; background: var(--card); display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 0 0 auto; }
+.hero aside > span { font: 44px Georgia, serif; color: var(--green); }
+.hero aside p { margin: 2px 0 14px; color: var(--soft); font-size: 9px; }
+.hero aside i { width: 30px; height: 1px; background: var(--line); }
+.hero aside small { margin-top: 11px; color: var(--muted); font-size: 8px; letter-spacing: .1em; }
+
+.content-section { padding-block: 70px 100px; }
+.section-title { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 13px; }
+.section-title h2 { margin: 0; font: 600 20px Georgia, "Songti SC", serif; }
+.section-title span { color: #a0a49f; font-size: 8px; letter-spacing: .18em; }
+.post-list { border-top: 1px solid var(--line); }
+.post-row { min-height: 180px; padding: 30px 4px; display: grid; grid-template-columns: 42px 1fr 32px; gap: 17px; align-items: center; border-bottom: 1px solid var(--line); }
+.post-number { align-self: start; padding-top: 4px; color: #a1a59f; font: italic 11px Georgia, serif; }
+.post-meta { display: flex; gap: 13px; color: var(--muted); font-size: 8px; letter-spacing: .07em; }
+.post-meta span { color: var(--green); font-weight: 700; }
+.post-copy h2 { margin: 10px 0 9px; font: 600 21px/1.4 Georgia, "Songti SC", serif; }
+.post-copy h2 a:hover { color: var(--green); }
+.post-copy > p { max-width: 650px; margin: 0; color: var(--soft); font-size: 11px; line-height: 1.8; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+.tag-row a { padding: 4px 8px; border-radius: 99px; background: #ecefe9; color: #667169; font-size: 8px; }
+.read-link { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid #d3d6d0; border-radius: 50%; color: var(--green); transition: .2s; }
+.read-link:hover { color: white; border-color: var(--green); background: var(--green); transform: translateX(3px); }
+
+.page-head { padding: 92px 0 55px; border-bottom: 1px solid var(--line); }
+.page-head h1 { margin: 12px 0 8px; font: 600 44px Georgia, "Songti SC", serif; }
+.page-head > p:last-child { margin: 0; color: var(--muted); font-size: 11px; }
+.archive-list { padding-block: 44px 100px; }
+.archive-year { display: grid; grid-template-columns: 110px 1fr; gap: 35px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.archive-year h2 { margin: 0; color: var(--green); font: 33px Georgia, serif; }
+.archive-year > div { display: grid; }
+.archive-year a { display: grid; grid-template-columns: 70px 1fr 18px; align-items: center; padding: 13px 0; border-bottom: 1px solid #e7e7e0; }
+.archive-year a:last-child { border-bottom: 0; }
+.archive-year time { color: var(--muted); font-size: 9px; }
+.archive-year a span { font: 13px Georgia, "Songti SC", serif; }
+.archive-year a i { color: var(--green); font-style: normal; }
+.topic-grid { padding-block: 50px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+.topic-grid a { min-height: 130px; border: 1px solid var(--line); border-radius: 11px; background: var(--card); padding: 22px; display: flex; flex-direction: column; }
+.topic-grid span { color: var(--green); font: 600 14px Georgia, "Songti SC", serif; }
+.topic-grid b { margin-top: auto; font: 28px Georgia, serif; }
+.topic-grid small { color: var(--muted); font-size: 8px; }
+
+.article { max-width: 780px; padding-block: 85px 110px; }
+.article > header { padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.article > header h1 { max-width: 690px; margin: 15px 0 13px; font: 600 clamp(32px, 6vw, 49px)/1.3 Georgia, "Songti SC", serif; letter-spacing: -.035em; }
+.article > header > p:not(.eyebrow) { max-width: 630px; color: var(--soft); font-size: 13px; line-height: 1.8; }
+.prose { padding: 37px 0 50px; font: 16px/2 Georgia, "Songti SC", serif; }
+.prose h2 { margin: 2.2em 0 .7em; font-size: 24px; line-height: 1.4; }
+.prose h3 { margin-top: 2em; font-size: 19px; }
+.prose p { margin: 1.1em 0; }
+.prose a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.prose blockquote { margin: 1.8em 0; padding: 13px 20px; border-left: 3px solid #89a293; background: #edf1ed; color: #515a52; }
+.prose blockquote p { margin: .55em 0; }
+.prose pre { overflow-x: auto; padding: 20px 22px; border-radius: 9px; background: #222a25; color: #dde6df; font: 13px/1.75 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.prose :not(pre) > code { padding: 2px 5px; border-radius: 4px; background: #e9ece7; color: #405d4e; font: .86em ui-monospace, monospace; }
+.article > footer { padding-top: 25px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 9px; }
+.article > footer a { color: var(--green); }
+.site-footer { min-height: 100px; padding: 0 max(28px, calc((100% - 1120px) / 2)); border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 8px; }
+
+@media (max-width: 680px) {
+  .site-header { height: 66px; padding-inline: 18px; }
+  .identity small { display: none; }
+  .identity b { font-size: 12px; }
+  .site-header nav { gap: 14px; font-size: 9px; }
+  .hero { min-height: 470px; padding-block: 60px; }
+  .hero aside { display: none; }
+  .hero h1 { font-size: 42px; }
+  .post-row { grid-template-columns: 27px 1fr; gap: 10px; }
+  .read-link { display: none; }
+  .post-copy h2 { font-size: 18px; }
+  .archive-year { grid-template-columns: 1fr; gap: 16px; }
+  .archive-year a { grid-template-columns: 52px 1fr 15px; }
+  .topic-grid { grid-template-columns: repeat(2, 1fr); }
+  .article { width: min(100% - 34px, 780px); padding-block: 55px 80px; }
+  .article > footer, .site-footer { align-items: flex-start; flex-direction: column; justify-content: center; }
+  .site-footer { gap: 6px; padding-block: 27px; }
+}

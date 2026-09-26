@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostList from "../components/PostList.astro";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout>
+  <section class="hero wrap">
+    <div>
+      <p class="eyebrow">学习日志 · 持续更新</p>
+      <h1>把学到的，<br /><em>变成自己的。</em></h1>
+      <p class="hero-copy">记录技术、算法、阅读和偶尔的思考。<br />这里只放我愿意公开的那一部分。</p>
+    </div>
+    <aside>
+      <span>{posts.length}</span>
+      <p>篇公开记录</p>
+      <i></i>
+      <small>始于 2022</small>
+    </aside>
+  </section>
+
+  <section class="content-section wrap">
+    <div class="section-title"><h2>最近记录</h2><span>RECENT NOTES</span></div>
+    <PostList posts={posts} />
+  </section>
+</BaseLayout>
